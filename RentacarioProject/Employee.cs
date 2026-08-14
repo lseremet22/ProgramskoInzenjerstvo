@@ -10,7 +10,13 @@ namespace RentacarioProject
 {
     public class Employee
     {
-        private String username { get; set; }
+        private String username;
+
+        public String getUsername()
+        {
+            return username;
+        }
+
         private String password;
         public String getPassword()
         {

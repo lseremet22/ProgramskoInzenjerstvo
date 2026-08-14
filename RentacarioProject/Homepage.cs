@@ -17,6 +17,7 @@ namespace RentacarioProject
         {
             InitializeComponent();
             this.employee = employee;
+            userButton.Text = employee.getUsername();
             //userlabel.Text = employee.ToString();
         }
     }
