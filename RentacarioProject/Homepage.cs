@@ -10,11 +10,14 @@ using System.Windows.Forms;
 
 namespace RentacarioProject
 {
-    public partial class Form1 : Form
+    public partial class Homepage : Form
     {
-        public Form1()
+        private Employee employee;
+        public Homepage(Employee employee)
         {
             InitializeComponent();
+            this.employee = employee;
+            //userlabel.Text = employee.ToString();
         }
     }
 }
