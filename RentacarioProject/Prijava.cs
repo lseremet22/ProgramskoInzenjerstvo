@@ -63,7 +63,7 @@ namespace RentacarioProject
                     }
                     if (employee.getPassword() == password)
                     {
-                        Homepage homepage = new Homepage(employee);
+                        Homepage homepage = new Homepage(employee, 840, 620);
                         homepage.Show();
                         this.Hide();
                     }

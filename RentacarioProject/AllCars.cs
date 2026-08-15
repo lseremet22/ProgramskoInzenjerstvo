@@ -20,6 +20,10 @@ namespace RentacarioProject
         "User Id=PI2526_lseremet22;" +
         "Password=7*sW1R}.&7K)B-.);";
 
+        //parametri koji osiguravaju velicinu prozora
+        private int width;
+        private int height;
+
         private Employee employee;
         private Vehicle vehicle;
         private List<Vehicle> listOfVehicles = new List<Vehicle>();
@@ -63,11 +67,12 @@ namespace RentacarioProject
             }
         }
 
-        public AllCars(Employee employee)
+        public AllCars(Employee employee ,int width, int height)
         {
             InitializeComponent();
             this.employee = employee;
             userButton.Text = employee.getUsername(); // dodaje ime ulogiranog korisnika na button
+            this.Size=new Size(width, height);
         }
 
         private void AllCars_Load(object sender, EventArgs e)
@@ -76,7 +81,11 @@ namespace RentacarioProject
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                String query = "select * from vozila";
+                String query = "SELECT \r\nvozila.naziv,\r\nvozila.marka,\r\nvozila.datumregistracije,\r\nvozila.brojkilometara," +
+                    "\r\nvozila.godiste,\r\nvozila.registracija,\r\nvrstegoriva.nazivgoriva AS vrstagoriva,\r\nvozila.potrosnja," +
+                    "\r\nskupine.nazivskupine AS skupina\r\nFROM vozila\r\nJOIN skupine\r\n    " +
+                    "ON vozila.skupina = skupine.IDskupine\r\nJOIN vrstegoriva\r\n    " +
+                    "ON vozila.vrstagoriva = vrstegoriva.IDgoriva;";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -91,9 +100,9 @@ namespace RentacarioProject
                                 Convert.ToInt32(reader["brojkilometara"]),
                                 Convert.ToInt32(reader["godiste"]),
                                 reader["registracija"].ToString(),
-                                Convert.ToInt32(reader["vrstagoriva"]),
+                                reader["vrstagoriva"].ToString(),
                                 Convert.ToSingle(reader["potrosnja"]),
-                                Convert.ToInt32(reader["skupina"])
+                                reader["skupina"].ToString()
                             );
                             
                             listOfVehicles.Add(vehicle);
@@ -122,7 +131,7 @@ namespace RentacarioProject
         private void homepageButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Homepage homepage = new Homepage(employee);
+            Homepage homepage = new Homepage(employee, this.ClientSize.Width, this.ClientSize.Height);
             homepage.Show();
         }
 

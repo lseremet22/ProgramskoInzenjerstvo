@@ -34,6 +34,7 @@
             this.allCarsButton = new System.Windows.Forms.Button();
             this.freeCarsButton = new System.Windows.Forms.Button();
             this.reservationsButton = new System.Windows.Forms.Button();
+            this.flowLayoutPanelVehicles = new System.Windows.Forms.FlowLayoutPanel();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -100,14 +101,26 @@
             this.reservationsButton.Text = "Rezervacije";
             this.reservationsButton.UseVisualStyleBackColor = true;
             // 
+            // flowLayoutPanelVehicles
+            // 
+            this.flowLayoutPanelVehicles.AutoScroll = true;
+            this.flowLayoutPanelVehicles.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanelVehicles.Location = new System.Drawing.Point(0, 47);
+            this.flowLayoutPanelVehicles.Name = "flowLayoutPanelVehicles";
+            this.flowLayoutPanelVehicles.Size = new System.Drawing.Size(787, 504);
+            this.flowLayoutPanelVehicles.TabIndex = 2;
+            this.flowLayoutPanelVehicles.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
+            // 
             // Homepage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(787, 551);
+            this.Controls.Add(this.flowLayoutPanelVehicles);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "Homepage";
             this.Text = "Rentacario";
+            this.Load += new System.EventHandler(this.Homepage_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -120,5 +133,6 @@
         private System.Windows.Forms.Button allCarsButton;
         private System.Windows.Forms.Button freeCarsButton;
         private System.Windows.Forms.Button reservationsButton;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelVehicles;
     }
 }

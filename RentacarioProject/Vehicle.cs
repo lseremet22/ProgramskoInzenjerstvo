@@ -14,11 +14,11 @@ namespace RentacarioProject
         private int numberOfKilometers;
         private int yearOfProduction;
         private String registrationNumber;
-        private int typeOfFuel;
+        private String typeOfFuel;
         private float fuelConsumption;
-        private int group;
+        private String group;
 
-        public Vehicle(String model, String brand, String registrationDate, int numberOfKilometers, int yearOfProduction, String registrationNumber, int typeOfFuel, float fuelConsumption, int group)
+        public Vehicle(String model, String brand, String registrationDate, int numberOfKilometers, int yearOfProduction, String registrationNumber, String typeOfFuel, float fuelConsumption, String group)
         {
             this.model = model;
             this.brand = brand;
@@ -69,7 +69,7 @@ namespace RentacarioProject
             return registrationNumber;
         }
 
-        public int getTypeOfFuel()
+        public String getTypeOfFuel()
         {
             return typeOfFuel;
         }
@@ -79,7 +79,7 @@ namespace RentacarioProject
             return fuelConsumption;
         }
 
-        public int getGroup()
+        public String getGroup()
         {
             return group;
         }
