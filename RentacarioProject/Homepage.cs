@@ -20,5 +20,12 @@ namespace RentacarioProject
             userButton.Text = employee.getUsername();
             //userlabel.Text = employee.ToString();
         }
+
+        private void allCarsButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            AllCars allcars = new AllCars(employee);
+            allcars.Show();
+        }
     }
 }
