@@ -7,11 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace RentacarioProject
 {
     public partial class VehicleDetails : Form
     {
+        private String connectionString =
+        "Server=31.147.206.65;" +
+        "Database=PI2526_lseremet22_DB;" +
+        "User Id=PI2526_lseremet22;" +
+        "Password=7*sW1R}.&7K)B-.);";
+
         private Employee employee;
         private int height;
         private int width;
@@ -68,7 +75,30 @@ namespace RentacarioProject
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
+            DialogResult result = MessageBox.Show("Jeste li sigurni da želite obrisati ovo vozilo?", 
+                "Potvrdi brisanje", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
+            if (result == DialogResult.Yes)
+            {
+
+                //spajanje na bazu i brisanje vozila
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    String query = "DELETE FROM vozila WHERE registracija = @registrationNumber";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@registrationNumber", v.getRegistrationNumber());
+                        command.ExecuteNonQuery();
+                    }
+                }
+                this.Hide();
+                AllCars allCars = new AllCars(employee, height, width);
+                allCars.Show();
+            }
+
+            //ako nije potvrđeno nece se dogoditi nista
         }
 
         private void editButton_Click(object sender, EventArgs e)
