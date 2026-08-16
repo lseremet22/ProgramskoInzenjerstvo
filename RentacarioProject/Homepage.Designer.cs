@@ -42,9 +42,9 @@
             // 
             this.userButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.userButton.Image = ((System.Drawing.Image)(resources.GetObject("userButton.Image")));
-            this.userButton.Location = new System.Drawing.Point(692, 3);
+            this.userButton.Location = new System.Drawing.Point(591, 3);
             this.userButton.Name = "userButton";
-            this.userButton.Size = new System.Drawing.Size(92, 41);
+            this.userButton.Size = new System.Drawing.Size(193, 45);
             this.userButton.TabIndex = 0;
             this.userButton.Text = "user";
             this.userButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -53,10 +53,10 @@
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 4;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.37965F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.62035F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 213F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 97F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.Controls.Add(this.userButton, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.allCarsButton, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.freeCarsButton, 1, 0);
@@ -65,17 +65,17 @@
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(787, 47);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(787, 51);
             this.tableLayoutPanel1.TabIndex = 1;
+            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
             // allCarsButton
             // 
             this.allCarsButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.allCarsButton.Location = new System.Drawing.Point(3, 3);
             this.allCarsButton.Name = "allCarsButton";
-            this.allCarsButton.Size = new System.Drawing.Size(229, 41);
+            this.allCarsButton.Size = new System.Drawing.Size(190, 45);
             this.allCarsButton.TabIndex = 1;
             this.allCarsButton.Text = "Sva vozila";
             this.allCarsButton.UseVisualStyleBackColor = true;
@@ -84,9 +84,9 @@
             // freeCarsButton
             // 
             this.freeCarsButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.freeCarsButton.Location = new System.Drawing.Point(238, 3);
+            this.freeCarsButton.Location = new System.Drawing.Point(199, 3);
             this.freeCarsButton.Name = "freeCarsButton";
-            this.freeCarsButton.Size = new System.Drawing.Size(235, 41);
+            this.freeCarsButton.Size = new System.Drawing.Size(190, 45);
             this.freeCarsButton.TabIndex = 2;
             this.freeCarsButton.Text = "Dostupna vozila";
             this.freeCarsButton.UseVisualStyleBackColor = true;
@@ -94,9 +94,9 @@
             // reservationsButton
             // 
             this.reservationsButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.reservationsButton.Location = new System.Drawing.Point(479, 3);
+            this.reservationsButton.Location = new System.Drawing.Point(395, 3);
             this.reservationsButton.Name = "reservationsButton";
-            this.reservationsButton.Size = new System.Drawing.Size(207, 41);
+            this.reservationsButton.Size = new System.Drawing.Size(190, 45);
             this.reservationsButton.TabIndex = 3;
             this.reservationsButton.Text = "Rezervacije";
             this.reservationsButton.UseVisualStyleBackColor = true;
@@ -105,9 +105,9 @@
             // 
             this.flowLayoutPanelVehicles.AutoScroll = true;
             this.flowLayoutPanelVehicles.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanelVehicles.Location = new System.Drawing.Point(0, 47);
+            this.flowLayoutPanelVehicles.Location = new System.Drawing.Point(0, 51);
             this.flowLayoutPanelVehicles.Name = "flowLayoutPanelVehicles";
-            this.flowLayoutPanelVehicles.Size = new System.Drawing.Size(787, 504);
+            this.flowLayoutPanelVehicles.Size = new System.Drawing.Size(787, 500);
             this.flowLayoutPanelVehicles.TabIndex = 2;
             this.flowLayoutPanelVehicles.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
             // 

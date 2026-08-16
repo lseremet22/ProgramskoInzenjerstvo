@@ -42,9 +42,7 @@ namespace RentacarioProject
                 //dodavanje podataka
                 Label label = new Label();
                 label.Text = "Marka: " + v.getBrand() + "\nModel: " + v.getModel()
-                    + "\nDatum registracije: " + v.getRegistrationDate() + "\nBroj kilometara: " + v.getNumberOfKilometers()
-                    + "\nGodiste: " + v.getYearOfProduction() + "\nRegistracija: " + v.getRegistrationNumber()
-                    + "\nVrsta goriva: " + v.getTypeOfFuel() + "\nPotrošnja: " + v.getFuelConsumption() + "\nVrsta vozila: " + v.getGroup();
+                    + "\nDatum registracije: " + v.getRegistrationDate() + "\nRegistracija: " + v.getRegistrationNumber();
                 label.Location = new Point(10, 10);
                 label.AutoSize = true;
                 panel.Controls.Add(label);
@@ -60,7 +58,7 @@ namespace RentacarioProject
                 Button button = new Button();
                 button.Text = "Detalji";
                 button.Name = "button" + v.getRegistrationNumber();
-                button.Location = new Point((panel.Width - button.Width) / 2, label.Bottom + 10);
+                button.Location = new Point((panel.Width - button.Width) / 2, pictureBox.Bottom + 10);
                 panel.Controls.Add(button);
 
                 flowLayoutPanelVehicles.Controls.Add(panel);
@@ -132,6 +130,11 @@ namespace RentacarioProject
         }
 
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
