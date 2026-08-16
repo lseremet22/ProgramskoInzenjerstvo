@@ -138,5 +138,12 @@ namespace RentacarioProject
         {
 
         }
+
+        private void reservationsButton_Click(object sender, EventArgs e)
+        {
+            ActiveReservations activeReservations = new ActiveReservations(employee, this.ClientSize.Width, this.ClientSize.Height);
+            this.Hide();
+            activeReservations.Show();
+        }
     }
 }

@@ -100,6 +100,7 @@
             this.reservationsButton.TabIndex = 3;
             this.reservationsButton.Text = "Rezervacije";
             this.reservationsButton.UseVisualStyleBackColor = true;
+            this.reservationsButton.Click += new System.EventHandler(this.reservationsButton_Click);
             // 
             // flowLayoutPanelVehicles
             // 
