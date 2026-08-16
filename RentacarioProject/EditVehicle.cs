@@ -92,7 +92,7 @@ namespace RentacarioProject
             //povratak na detalje o vozilima s promjenama
 
             Vehicle vehicle = new Vehicle(modelBox.Text, makerBox.Text, registrationDateBox.Text, int.Parse(kilometersBox.Text), int.Parse(manufacturingYearBox.Text),
-               v.getRegistrationNumber(),(fuelComboBox.SelectedIndex + 1).ToString(), float.Parse(consumptionBox.Text), (groupComboBox.SelectedIndex + 1).ToString());
+               v.getRegistrationNumber(),(fuelComboBox.SelectedItem).ToString(), float.Parse(consumptionBox.Text), (groupComboBox.SelectedItem).ToString());
             VehicleDetails vehicleDetails = new VehicleDetails(employee, this.ClientSize.Width, this.ClientSize.Height, vehicle);
             this.Hide();
             vehicleDetails.Show();
