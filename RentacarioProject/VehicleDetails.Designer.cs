@@ -35,7 +35,13 @@
             this.reservationsButton = new System.Windows.Forms.Button();
             this.userButton = new System.Windows.Forms.Button();
             this.flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.reserveButton = new System.Windows.Forms.Button();
+            this.editButton = new System.Windows.Forms.Button();
+            this.deleteButton = new System.Windows.Forms.Button();
+            this.financeButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -113,21 +119,84 @@
             this.flowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel.Location = new System.Drawing.Point(0, 45);
             this.flowLayoutPanel.Name = "flowLayoutPanel";
-            this.flowLayoutPanel.Size = new System.Drawing.Size(786, 405);
+            this.flowLayoutPanel.Size = new System.Drawing.Size(786, 428);
             this.flowLayoutPanel.TabIndex = 1;
             this.flowLayoutPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel_Paint);
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 4;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.Controls.Add(this.reserveButton, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.editButton, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.deleteButton, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.financeButton, 3, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 433);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(786, 40);
+            this.tableLayoutPanel2.TabIndex = 2;
+            // 
+            // reserveButton
+            // 
+            this.reserveButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.reserveButton.Location = new System.Drawing.Point(3, 3);
+            this.reserveButton.Name = "reserveButton";
+            this.reserveButton.Size = new System.Drawing.Size(190, 34);
+            this.reserveButton.TabIndex = 0;
+            this.reserveButton.Text = "Rezerviraj";
+            this.reserveButton.UseVisualStyleBackColor = true;
+            // 
+            // editButton
+            // 
+            this.editButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.editButton.Location = new System.Drawing.Point(199, 3);
+            this.editButton.Name = "editButton";
+            this.editButton.Size = new System.Drawing.Size(190, 34);
+            this.editButton.TabIndex = 1;
+            this.editButton.Text = "Uredi";
+            this.editButton.UseVisualStyleBackColor = true;
+            this.editButton.Click += new System.EventHandler(this.editButton_Click);
+            // 
+            // deleteButton
+            // 
+            this.deleteButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.deleteButton.Location = new System.Drawing.Point(395, 3);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(190, 34);
+            this.deleteButton.TabIndex = 2;
+            this.deleteButton.Text = "Obriši";
+            this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
+            // 
+            // financeButton
+            // 
+            this.financeButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.financeButton.Location = new System.Drawing.Point(591, 3);
+            this.financeButton.Name = "financeButton";
+            this.financeButton.Size = new System.Drawing.Size(192, 34);
+            this.financeButton.TabIndex = 3;
+            this.financeButton.Text = "Pregled financijskih podataka";
+            this.financeButton.UseVisualStyleBackColor = true;
             // 
             // VehicleDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(786, 450);
+            this.ClientSize = new System.Drawing.Size(786, 473);
+            this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.flowLayoutPanel);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "VehicleDetails";
             this.Text = "Podaci o vozilu";
             this.Load += new System.EventHandler(this.VehicleDetails_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -140,5 +209,10 @@
         private System.Windows.Forms.Button reservationsButton;
         private System.Windows.Forms.Button userButton;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Button reserveButton;
+        private System.Windows.Forms.Button editButton;
+        private System.Windows.Forms.Button deleteButton;
+        private System.Windows.Forms.Button financeButton;
     }
 }

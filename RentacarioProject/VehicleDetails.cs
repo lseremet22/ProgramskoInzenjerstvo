@@ -65,5 +65,17 @@ namespace RentacarioProject
             Homepage homepage = new Homepage(employee, height, width);
             homepage.Show();
         }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void editButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            EditVehicle editVehicle = new EditVehicle(employee, height, width, v);
+            editVehicle.Show();
+        }
     }
 }
