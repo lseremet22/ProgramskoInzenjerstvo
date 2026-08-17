@@ -17,6 +17,7 @@ namespace RentacarioProject
         private int height;
         private int width;
         private Employee employee;
+      
 
         private String connectionString =
         "Server=31.147.206.65;" +
@@ -38,9 +39,16 @@ namespace RentacarioProject
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                string query = "select * from rezervacije\r" +
-                    "\nwhere sysdatetime()<=kraj\r\n" +
-                    "and sysdatetime()>=pocetak;";
+                string query = "select rezervacije.OIB, vrsterezervacija.naziv,"+
+                            " rezervacije.registracija, rezervacije.brojkilometara,"+
+                            " rezervacije.pocetak, rezervacije.kraj,"+
+                            " kupci.ime, kupci.prezime"+
+                            " from rezervacije join kupci"+
+                            " on rezervacije.OIB = kupci.OIB"+
+                            " join vrsterezervacija"+
+                            " on rezervacije.vrstarezervacije = vrsterezervacija.IDrezervacije"+
+                            " where sysdatetime()<= kraj"+
+                            " and sysdatetime()>= pocetak;" ;
 
                 using (SqlCommand command = new SqlCommand(query, connection)) 
                 {
@@ -76,12 +84,18 @@ namespace RentacarioProject
                             button.Location = new Point((panel.Width - button.Width) / 2, pictureBox.Bottom + 10);
                             button.AutoSize = true;
 
-                            /*button.Click += (sender, e) =>
+                            //kreiraj objekt reservation
+                            Reservation reservation = new Reservation(reader["OIB"].ToString(),reader["naziv"].ToString()
+                                ,reader["registracija"].ToString(), int.Parse(reader["brojkilometara"].ToString())
+                                , Convert.ToDateTime(reader["pocetak"]), Convert.ToDateTime(reader["kraj"]),
+                                reader["ime"].ToString(), reader["prezime"].ToString());
+
+                            button.Click += (sender2, e2) =>
                             {
-                                this.Hide();
-                                VehicleDetails vehicleDetails = new VehicleDetails(employee, this.ClientSize.Width, this.ClientSize.Height, v);
-                                vehicleDetails.Show();
-                            };*/
+                                //this.Hide();
+                                ReservationDetails reservationDetails = new ReservationDetails(width, height,reservation, employee);
+                                reservationDetails.Show();
+                            };
 
                             panel.Controls.Add(button);
 
@@ -115,6 +129,11 @@ namespace RentacarioProject
         }
 
         private void userButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void flowLayoutPanel_Paint(object sender, PaintEventArgs e)
         {
 
         }
