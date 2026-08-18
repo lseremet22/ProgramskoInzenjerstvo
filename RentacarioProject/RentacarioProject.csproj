@@ -54,6 +54,12 @@
       <DependentUpon>ActiveReservations.cs</DependentUpon>
     </Compile>
     <Compile Include="ActiveReservationsRepository.cs" />
+    <Compile Include="AddFuelPrice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddFuelPrice.Designer.cs">
+      <DependentUpon>AddFuelPrice.cs</DependentUpon>
+    </Compile>
     <Compile Include="AllCars.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,6 +73,8 @@
       <DependentUpon>EditVehicle.cs</DependentUpon>
     </Compile>
     <Compile Include="Employee.cs" />
+    <Compile Include="FuelPrice.cs" />
+    <Compile Include="FuelPriceRepository.cs" />
     <Compile Include="Homepage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +105,9 @@
     </Compile>
     <EmbeddedResource Include="ActiveReservations.resx">
       <DependentUpon>ActiveReservations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddFuelPrice.resx">
+      <DependentUpon>AddFuelPrice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AllCars.resx">
       <DependentUpon>AllCars.cs</DependentUpon>

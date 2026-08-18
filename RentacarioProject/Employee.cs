@@ -22,7 +22,12 @@ namespace RentacarioProject
         {
             return password;
         }
-        private int position { get; set; }
+        private int position;
+
+        public int getPosition()
+        {
+            return position;
+        }
 
         public Employee(String username, String password, int position)
         {

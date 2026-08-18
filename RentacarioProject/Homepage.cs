@@ -41,7 +41,8 @@ namespace RentacarioProject
 
                 //dodavanje podataka
                 Label label = new Label();
-                label.Text = "Marka: " + v.getBrand() + "\nModel: " + v.getModel()
+                label.Text = "Potrebno servisirati!"+
+                    "\nMarka: " + v.getBrand() + "\nModel: " + v.getModel()
                     + "\nDatum registracije: " + v.getRegistrationDate() + "\nRegistracija: " + v.getRegistrationNumber();
                 label.Location = new Point(10, 10);
                 label.AutoSize = true;
@@ -71,7 +72,11 @@ namespace RentacarioProject
             this.width = width;
             this.height = height;
             this.employee = employee;
-            userButton.Text = employee.getUsername();
+            //userButton.Text = employee.getUsername();
+            if(employee.getPosition() == 1)
+            {
+                userButton.Enabled = false;
+            }
             this.Size = new Size(width, height);
         }
 
@@ -144,6 +149,14 @@ namespace RentacarioProject
             ActiveReservations activeReservations = new ActiveReservations(employee, this.ClientSize.Width, this.ClientSize.Height);
             this.Hide();
             activeReservations.Show();
+        }
+
+        private void userButton_Click(object sender, EventArgs e)
+        {
+            //unos cijene goriva
+            AddFuelPrice addFuelPrice = new AddFuelPrice();
+            addFuelPrice.Show();
+
         }
     }
 }

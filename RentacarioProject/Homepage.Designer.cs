@@ -46,9 +46,10 @@
             this.userButton.Name = "userButton";
             this.userButton.Size = new System.Drawing.Size(193, 45);
             this.userButton.TabIndex = 0;
-            this.userButton.Text = "user";
+            this.userButton.Text = "Unesi cijenu goriva";
             this.userButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.userButton.UseVisualStyleBackColor = true;
+            this.userButton.Click += new System.EventHandler(this.userButton_Click);
             // 
             // tableLayoutPanel1
             // 
