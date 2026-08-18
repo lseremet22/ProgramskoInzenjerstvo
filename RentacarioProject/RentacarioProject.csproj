@@ -53,6 +53,7 @@
     <Compile Include="ActiveReservations.Designer.cs">
       <DependentUpon>ActiveReservations.cs</DependentUpon>
     </Compile>
+    <Compile Include="ActiveReservationsRepository.cs" />
     <Compile Include="AllCars.cs">
       <SubType>Form</SubType>
     </Compile>
