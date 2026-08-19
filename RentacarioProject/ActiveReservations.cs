@@ -34,7 +34,7 @@ namespace RentacarioProject
             //sprema sve ucitane rezervacije u listu
             List<Reservation> reservations = new List<Reservation>();
             reservations = activeReservationsRepository.getActiveReservations();
-
+            
             foreach (Reservation r in reservations) 
             {
                 Panel panel = new Panel();

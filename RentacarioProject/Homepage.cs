@@ -57,9 +57,29 @@ namespace RentacarioProject
 
                 //dodavanje buttona
                 Button button = new Button();
-                button.Text = "Detalji";
+                button.Text = "Pošalji na servis";
+                button.AutoSize = true;
                 button.Name = "button" + v.getRegistrationNumber();
                 button.Location = new Point((panel.Width - button.Width) / 2, pictureBox.Bottom + 10);
+
+                //funkcija buttona za slanje vozila na servis
+                button.Click += (sender2, e2) =>
+                {
+                    DialogResult = MessageBox.Show("Jeste li sigurni da želite poslati vozilo na servis?",
+                        "Potvrdi",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+
+
+                    if (DialogResult== DialogResult.Yes)
+                    {
+                        //sprema detalje o servisu u bazu
+                        ServiceRepository serviceRepository = new ServiceRepository();
+                        serviceRepository.sendToService(v);
+                    }
+               
+                };
+
                 panel.Controls.Add(button);
 
                 flowLayoutPanelVehicles.Controls.Add(panel);

@@ -96,6 +96,8 @@
     <Compile Include="ReservationDetails.Designer.cs">
       <DependentUpon>ReservationDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="Service.cs" />
+    <Compile Include="ServiceRepository.cs" />
     <Compile Include="Vehicle.cs" />
     <Compile Include="VehicleDetails.cs">
       <SubType>Form</SubType>
