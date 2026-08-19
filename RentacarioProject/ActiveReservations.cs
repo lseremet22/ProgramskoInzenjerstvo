@@ -5,10 +5,13 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+
 
 namespace RentacarioProject
 {
@@ -31,6 +34,33 @@ namespace RentacarioProject
 
         private void AktivneRezervacije_Load(object sender, EventArgs e)
         {
+            //kreira gumb za naplatu nenaplacenih rezervacija
+            Panel controlsPanel = new Panel();
+            controlsPanel.Size = new Size(400, 180);
+            controlsPanel.BorderStyle = BorderStyle.Fixed3D;
+
+            Label controlsLabel = new Label();
+            controlsLabel.Text = "Nepodmirene rezervacije?";
+            controlsLabel.Location = new Point(10, 40);
+            controlsLabel.AutoSize = true;
+            controlsLabel.Font = new Font("Arial", 10);
+
+
+            Button billButton = new Button();
+            billButton.Text = "Naplata";
+            billButton.Location = new Point((controlsPanel.Width - billButton.Width) / 2, controlsLabel.Bottom + 30);
+            controlsPanel.Controls.Add( controlsLabel );
+            controlsPanel.Controls.Add( billButton );
+            flowLayoutPanel.Controls.Add( controlsPanel );
+
+            //funkcionalnost gumbica za naplatu
+            billButton.Click += (sender2, e2) =>
+            {
+                UnpaidReservationsForm form = new UnpaidReservationsForm(employee);
+                form.Show();
+            };
+
+
             //sprema sve ucitane rezervacije u listu
             List<Reservation> reservations = new List<Reservation>();
             reservations = activeReservationsRepository.getActiveReservations();
