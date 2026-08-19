@@ -17,8 +17,9 @@ namespace RentacarioProject
         private String model;
         private String registration;
         private int numberOfKilometers;
+        private String fuel;
 
-        public UnpaidBillingDataObject(string name, string surname, string oib, DateTime end, string maker, string model, string registration, int numberOfKilometers)
+        public UnpaidBillingDataObject(string name, string surname, string oib, DateTime end, string maker, string model, string registration, int numberOfKilometers, string fuel)
         {
             this.name = name;
             this.surname = surname;
@@ -28,6 +29,7 @@ namespace RentacarioProject
             this.model = model;
             this.registration = registration;
             this.numberOfKilometers = numberOfKilometers;
+            this.fuel = fuel;
         }
 
         public String getName() { return name; }
@@ -38,5 +40,6 @@ namespace RentacarioProject
         public String getModel() { return model; }
         public String getRegistration() { return registration; }
         public int getNumberOfKilometers() { return numberOfKilometers; }
+        public String getFuel() { return fuel; }
     }
 }

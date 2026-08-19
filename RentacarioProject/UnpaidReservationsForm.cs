@@ -57,7 +57,7 @@ namespace RentacarioProject
                 //funkcionalnost gumbica za naplatu
                 billButton.Click += (sender2, e2) =>
                 {
-                    BillingForm form = new BillingForm(employee);
+                    BillingForm form = new BillingForm(employee, u);
                     form.Show();
                 };
 

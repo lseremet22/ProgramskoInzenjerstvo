@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -22,15 +23,25 @@ namespace RentacarioProject
             List<UnpaidBillingDataObject> list = new List<UnpaidBillingDataObject>();
 
             //query koji dohvaca rezervacije koje jos nisu placene
-            String query = "select kupci.ime,\r\nkupci.prezime," +
-                "\r\nkupci.oib,\r\nrezervacije.kraj,\r\nvozila.marka," +
-                "\r\nvozila.naziv,\r\nvozila.registracija,\r\nrezervacije.brojkilometara" +
-                "\r\nfrom rezervacije" +
-                "\r\njoin vozila ON vozila.registracija=rezervacije.registracija" +
-                "\r\njoin kupci on kupci.oib=rezervacije.oib" +
-                " WHERE NOT EXISTS(SELECT 1 FROM naplate WHERE " +
-                "naplate.registracija = rezervacije.registracija AND " +
-                "naplate.brojkilometarastari = rezervacije.brojkilometara);";
+            String query =
+                "SELECT kupci.ime, " +
+                "kupci.prezime, " +
+                "kupci.oib, " +
+                "rezervacije.kraj, " +
+                "vozila.marka, " +
+                "vozila.naziv, " +
+                "vozila.registracija, " +
+                "rezervacije.brojkilometara, " +
+                "vrstegoriva.nazivgoriva AS gorivo " +
+                "FROM rezervacije " +
+                "JOIN vozila ON vozila.registracija = rezervacije.registracija " +
+                "JOIN kupci ON kupci.oib = rezervacije.oib " +
+                "JOIN vrstegoriva ON vrstegoriva.IDgoriva = vozila.vrstagoriva " +
+                "WHERE NOT EXISTS (" +
+                 "SELECT 1 FROM naplate " +
+                 "WHERE naplate.registracija = rezervacije.registracija " +
+                 "AND naplate.brojkilometarastari = rezervacije.brojkilometara" +
+                  ");";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -51,7 +62,8 @@ namespace RentacarioProject
                             reader["marka"].ToString(),
                             reader["naziv"].ToString(),
                             reader["registracija"].ToString(),
-                            int.Parse(reader["brojkilometara"].ToString())
+                            int.Parse(reader["brojkilometara"].ToString()),
+                            reader["gorivo"].ToString()
                          );
 
                         list.Add(transferObject);

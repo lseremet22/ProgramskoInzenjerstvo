@@ -41,6 +41,7 @@
             this.damagaField = new System.Windows.Forms.TextBox();
             this.kilometersBox = new System.Windows.Forms.TextBox();
             this.billButton = new System.Windows.Forms.Button();
+            this.fuelLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,6 +63,7 @@
             this.tableLayoutPanel.Controls.Add(this.damagaField, 2, 1);
             this.tableLayoutPanel.Controls.Add(this.kilometersBox, 1, 4);
             this.tableLayoutPanel.Controls.Add(this.billButton, 1, 9);
+            this.tableLayoutPanel.Controls.Add(this.fuelLabel, 0, 7);
             this.tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel.Name = "tableLayoutPanel";
@@ -199,6 +201,16 @@
             this.billButton.Text = "Naplati";
             this.billButton.UseVisualStyleBackColor = true;
             // 
+            // fuelLabel
+            // 
+            this.fuelLabel.AutoSize = true;
+            this.fuelLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.fuelLabel.Location = new System.Drawing.Point(3, 280);
+            this.fuelLabel.Name = "fuelLabel";
+            this.fuelLabel.Size = new System.Drawing.Size(260, 40);
+            this.fuelLabel.TabIndex = 12;
+            this.fuelLabel.Text = "label1";
+            // 
             // BillingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -229,5 +241,6 @@
         private System.Windows.Forms.TextBox damagaField;
         private System.Windows.Forms.TextBox kilometersBox;
         private System.Windows.Forms.Button billButton;
+        private System.Windows.Forms.Label fuelLabel;
     }
 }
