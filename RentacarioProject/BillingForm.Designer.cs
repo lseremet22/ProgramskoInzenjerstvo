@@ -42,6 +42,7 @@
             this.kilometersBox = new System.Windows.Forms.TextBox();
             this.billButton = new System.Windows.Forms.Button();
             this.fuelLabel = new System.Windows.Forms.Label();
+            this.calculateButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,6 +65,7 @@
             this.tableLayoutPanel.Controls.Add(this.kilometersBox, 1, 4);
             this.tableLayoutPanel.Controls.Add(this.billButton, 1, 9);
             this.tableLayoutPanel.Controls.Add(this.fuelLabel, 0, 7);
+            this.tableLayoutPanel.Controls.Add(this.calculateButton, 1, 5);
             this.tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel.Name = "tableLayoutPanel";
@@ -172,6 +174,7 @@
             this.damageCheckBox.TabIndex = 8;
             this.damageCheckBox.Text = "Prisutna šteta";
             this.damageCheckBox.UseVisualStyleBackColor = true;
+            this.damageCheckBox.CheckedChanged += new System.EventHandler(this.damageCheckBox_CheckedChanged);
             // 
             // damagaField
             // 
@@ -181,6 +184,7 @@
             this.damagaField.Size = new System.Drawing.Size(262, 20);
             this.damagaField.TabIndex = 9;
             this.damagaField.Text = "Opis Štete";
+            this.damagaField.TextChanged += new System.EventHandler(this.damagaField_TextChanged);
             // 
             // kilometersBox
             // 
@@ -200,6 +204,7 @@
             this.billButton.TabIndex = 11;
             this.billButton.Text = "Naplati";
             this.billButton.UseVisualStyleBackColor = true;
+            this.billButton.Click += new System.EventHandler(this.billButton_Click);
             // 
             // fuelLabel
             // 
@@ -210,6 +215,17 @@
             this.fuelLabel.Size = new System.Drawing.Size(260, 40);
             this.fuelLabel.TabIndex = 12;
             this.fuelLabel.Text = "label1";
+            // 
+            // calculateButton
+            // 
+            this.calculateButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.calculateButton.Location = new System.Drawing.Point(269, 203);
+            this.calculateButton.Name = "calculateButton";
+            this.calculateButton.Size = new System.Drawing.Size(260, 34);
+            this.calculateButton.TabIndex = 13;
+            this.calculateButton.Text = "Izračunaj";
+            this.calculateButton.UseVisualStyleBackColor = true;
+            this.calculateButton.Click += new System.EventHandler(this.calculateButton_Click);
             // 
             // BillingForm
             // 
@@ -242,5 +258,6 @@
         private System.Windows.Forms.TextBox kilometersBox;
         private System.Windows.Forms.Button billButton;
         private System.Windows.Forms.Label fuelLabel;
+        private System.Windows.Forms.Button calculateButton;
     }
 }

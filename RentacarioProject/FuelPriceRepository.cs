@@ -16,9 +16,9 @@ namespace RentacarioProject
         "Password=7*sW1R}.&7K)B-.);";
 
         //cita fuelorices iz baze
-        public List<FuelPrice> getFuelPrices()
+        public FuelPrice getFuelPrices()
         {
-            List<FuelPrice> fuelPrices = new List<FuelPrice>();
+            FuelPrice fuelPrice = null;
             string query = "SELECT * FROM cijenegoriva";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -26,25 +26,23 @@ namespace RentacarioProject
                 using (SqlCommand command = new SqlCommand(query, connection))
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
-                    while (reader.Read())
-                    {
-                        FuelPrice fuelPrice = new FuelPrice(
+                    reader.Read();
+                            fuelPrice = new FuelPrice(
                             float.Parse(reader["dizel"].ToString()),
                             float.Parse(reader["benzin"].ToString()),
                             Convert.ToDateTime(reader["uneseno"])
                         );
-                        fuelPrices.Add(fuelPrice);
-                    }
                 }
             }
-            return fuelPrices;
+            return fuelPrice;
         }
 
 
     //unosi fuelprices u bazu
     public void setFuelPrices(float dieselPrice, float gasPrice)
         {
-            string query = "INSERT INTO cijenegoriva (dizel, benzin, uneseno) VALUES (@dieselPrice, @gasPrice, SYSDATETIME())";
+            string query = "DELETE * FROM cijenegoriva;\n"+
+                "INSERT INTO cijenegoriva (dizel, benzin, uneseno) VALUES (@dieselPrice, @gasPrice, SYSDATETIME())";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();

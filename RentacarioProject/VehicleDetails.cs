@@ -13,11 +13,7 @@ namespace RentacarioProject
 {
     public partial class VehicleDetails : Form
     {
-        private String connectionString =
-        "Server=31.147.206.65;" +
-        "Database=PI2526_lseremet22_DB;" +
-        "User Id=PI2526_lseremet22;" +
-        "Password=7*sW1R}.&7K)B-.);";
+
 
         private Employee employee;
         private int height;
@@ -81,19 +77,39 @@ namespace RentacarioProject
             if (result == DialogResult.Yes)
             {
 
-                //spajanje na bazu i brisanje vozila
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                //brisanje vozila iz baze
+                VehicleRepository vehicleRepository = new VehicleRepository();
+                try
                 {
-                    connection.Open();
-                    String query = "DELETE FROM vozila WHERE registracija = @registrationNumber";
+                    vehicleRepository.deleteVehicle(v);
 
-                    using (SqlCommand command = new SqlCommand(query, connection))
-                    {
-                        command.Parameters.AddWithValue("@registrationNumber", v.getRegistrationNumber());
-                        command.ExecuteNonQuery();
-                    }
+                    MessageBox.Show(
+                        "Vozilo je uspješno obrisano.",
+                        "Brisanje vozila",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information
+                    );
                 }
-                this.Hide();
+                catch (SqlException ex)
+                {
+                    if (ex.Number == 547)
+                    {
+                        MessageBox.Show(
+                            "Zabranjeno je obrisati vozilo jer postoje zapisi o servisima.",
+                            "Brisanje vozila",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Warning
+                        );
+                    }
+
+                }
+
+
+
+
+
+
+                    this.Hide();
                 AllCars allCars = new AllCars(employee, height, width);
                 allCars.Show();
             }

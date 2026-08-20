@@ -120,6 +120,7 @@
     <Compile Include="VehicleDetails.Designer.cs">
       <DependentUpon>VehicleDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="VehicleRepository.cs" />
     <EmbeddedResource Include="ActiveReservations.resx">
       <DependentUpon>ActiveReservations.cs</DependentUpon>
     </EmbeddedResource>
