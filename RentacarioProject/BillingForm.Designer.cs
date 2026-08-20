@@ -43,6 +43,7 @@
             this.billButton = new System.Windows.Forms.Button();
             this.fuelLabel = new System.Windows.Forms.Label();
             this.calculateButton = new System.Windows.Forms.Button();
+            this.emailBox = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,6 +67,7 @@
             this.tableLayoutPanel.Controls.Add(this.billButton, 1, 9);
             this.tableLayoutPanel.Controls.Add(this.fuelLabel, 0, 7);
             this.tableLayoutPanel.Controls.Add(this.calculateButton, 1, 5);
+            this.tableLayoutPanel.Controls.Add(this.emailBox, 1, 8);
             this.tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel.Name = "tableLayoutPanel";
@@ -227,6 +229,15 @@
             this.calculateButton.UseVisualStyleBackColor = true;
             this.calculateButton.Click += new System.EventHandler(this.calculateButton_Click);
             // 
+            // emailBox
+            // 
+            this.emailBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.emailBox.Location = new System.Drawing.Point(269, 323);
+            this.emailBox.Name = "emailBox";
+            this.emailBox.Size = new System.Drawing.Size(260, 20);
+            this.emailBox.TabIndex = 14;
+            this.emailBox.Text = "Email";
+            // 
             // BillingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -259,5 +270,6 @@
         private System.Windows.Forms.Button billButton;
         private System.Windows.Forms.Label fuelLabel;
         private System.Windows.Forms.Button calculateButton;
+        private System.Windows.Forms.TextBox emailBox;
     }
 }

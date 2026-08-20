@@ -12,6 +12,7 @@ namespace RentacarioProject
 {
     public partial class BillingForm : Form
     {
+        
         private Employee employee;
         private UnpaidBillingDataObject u;
         public BillingForm(Employee employee, UnpaidBillingDataObject u)
@@ -84,7 +85,13 @@ namespace RentacarioProject
             VehicleRepository vehicleRepo = new VehicleRepository();
             vehicleRepo.editVehicleKilometers(u.getRegistration(), int.Parse((kilometersBox.Text).ToString()));
 
+            //posalji email korisniku s podacima o naplati
+            Billing billing = new Billing(damagaField.Text, u.getNumberOfKilometers(), int.Parse(kilometersBox.Text), u.getRegistration(), employee, float.Parse(ammountLabel.Text.Split(':')[1]));
+            BillingRepository billingRepo = new BillingRepository();
+            billingRepo.sendEmail(emailBox.Text, billing);
+            
             //spremi podatke u tablicu naplata
+            billingRepo.saveBillingData(billing);
         }
     }
 }
